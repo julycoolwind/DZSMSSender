@@ -46,9 +46,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    //获取对通讯录的引用
     ABAddressBookRef addressBook = nil;
-    persons = [[NSMutableArray alloc]initWithCapacity:50];
     if ([[UIDevice currentDevice].systemVersion floatValue] >= 6.0)
     {
         addressBook = ABAddressBookCreateWithOptions(NULL, NULL);
@@ -65,7 +64,10 @@
     {
         addressBook = ABAddressBookCreate();
     }
+    //创建保存联系人的数组
+    persons = [[NSMutableArray alloc]initWithCapacity:50];
     personRecordArray = (__bridge NSMutableArray *)ABAddressBookCopyArrayOfAllPeople(addressBook);
+    //将联系人记录，转换为person对象数组
     for(int i = 0 ;i<personRecordArray.count;i++){
         ABRecordRef thisPerson = CFBridgingRetain([personRecordArray objectAtIndex:i]);
         NSString *firstName = CFBridgingRelease(ABRecordCopyValue(thisPerson, kABPersonFirstNameProperty));
@@ -101,15 +103,17 @@
         CFRelease(phones);
         
         [persons addObject:person];
-    }
+    }//person对象转换完毕
+    //根据person的姓名拼音进行排序
     persons = (NSMutableArray *)[persons sortedArrayUsingComparator:^NSComparisonResult(DZPerson *person1, DZPerson *person2) {
         return [person1.namePinyin compare:person2.namePinyin];
     }];
+    //让排序后的每个person记录自己的索引号
     for(int i = 0 ;i<persons.count ; i++){
         DZPerson *person = [persons objectAtIndex:i];
         person.personIndex = [NSNumber numberWithInt:i];
     }
-    //
+    //便利person数组，取得每个联系人的姓名首字母，并放置如索引数组
     for (DZPerson *p in persons) {
         NSString *firstLetter;
         if (p.fullName.length == 0 || p.fullName == NULL) {
@@ -126,9 +130,11 @@
             [[sortedPerson objectForKey:firstLetter] addObject:p];
         }
     }
+    //对索引数组进行排序
     sortedKeys = (NSMutableArray *)[sortedKeys sortedArrayUsingComparator:^NSComparisonResult(NSString *string1, NSString *string2) {
         return [ string1 compare:string2];
     }];
+    
     [self.tableView setEditing:YES animated:YES];
     selectedRow = [[NSMutableArray alloc] initWithCapacity:50];
     
