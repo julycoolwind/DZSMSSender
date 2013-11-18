@@ -49,6 +49,27 @@
     personArray = (NSMutableArray *)[persons sortedArrayUsingComparator:^NSComparisonResult(DZPerson *person1, DZPerson *person2) {
         return [person1.namePinyin compare:person2.namePinyin];
     }];
+    //让排序后的每个person记录自己的索引号
+    for(int i = 0 ;i<personArray.count ; i++){
+        DZPerson *person = [persons objectAtIndex:i];
+        person.personIndex = [NSNumber numberWithInt:i];
+
+        //便利person数组，取得每个联系人的姓名首字母，并放置如索引数组
+        NSString *firstLetter;
+        if (person.fullName.length == 0 || person.fullName == NULL) {
+            firstLetter = @"#";
+        }else{
+            firstLetter =[[NSString stringWithFormat:@"%c",pinyinFirstLetter([person.fullName characterAtIndex:0])] uppercaseString];
+        }
+        if([sortedPerson objectForKey:firstLetter]==NULL){
+            NSMutableArray *items = [[NSMutableArray alloc] init];
+            [items addObject:person];
+            [sortedPerson setObject:items forKey:firstLetter];
+            [sortedKeys addObject:firstLetter];
+        }else{
+            [[sortedPerson objectForKey:firstLetter] addObject:person];
+        }
+    }
 }
 
 - (void)viewDidLoad
@@ -113,28 +134,7 @@
         [persons addObject:person];
     }//person对象转换完毕
     [self sortPersonsByPinyinName:persons];
-    //让排序后的每个person记录自己的索引号
-    for(int i = 0 ;i<persons.count ; i++){
-        DZPerson *person = [persons objectAtIndex:i];
-        person.personIndex = [NSNumber numberWithInt:i];
-    }
-    //便利person数组，取得每个联系人的姓名首字母，并放置如索引数组
-    for (DZPerson *p in persons) {
-        NSString *firstLetter;
-        if (p.fullName.length == 0 || p.fullName == NULL) {
-            firstLetter = @"#";
-        }else{
-         firstLetter =[[NSString stringWithFormat:@"%c",pinyinFirstLetter([p.fullName characterAtIndex:0])] uppercaseString];
-        }
-        if([sortedPerson objectForKey:firstLetter]==NULL){
-            NSMutableArray *items = [[NSMutableArray alloc] init];
-            [items addObject:p];
-            [sortedPerson setObject:items forKey:firstLetter];
-            [sortedKeys addObject:firstLetter];
-        }else{
-            [[sortedPerson objectForKey:firstLetter] addObject:p];
-        }
-    }
+    
     //对索引数组进行排序
     sortedKeys = (NSMutableArray *)[sortedKeys sortedArrayUsingComparator:^NSComparisonResult(NSString *string1, NSString *string2) {
         return [ string1 compare:string2];
