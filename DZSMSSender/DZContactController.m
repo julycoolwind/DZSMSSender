@@ -19,7 +19,7 @@
 @end
 
 @implementation DZContactController{
-    int count;
+    int MessageCount;
     NSMutableArray *persons;
     NSMutableArray *personRecordArray;
     NSMutableArray *selectedRow;
@@ -150,7 +150,7 @@
 
 
 -(void)sendSMS:(id *)sender{
-    count = selectedRow.count;
+    MessageCount = selectedRow.count;
     [self sendAllSms];
 }
 
@@ -160,9 +160,9 @@
 	if([MFMessageComposeViewController canSendText])
 	{
         
-        if(count>0){
-            count--;
-            NSIndexPath *indexPath = (NSIndexPath *)[selectedRow objectAtIndex:count];
+        if(MessageCount>0){
+            MessageCount--;
+            NSIndexPath *indexPath = (NSIndexPath *)[selectedRow objectAtIndex:MessageCount];
             
             DZContactCell *cell = (DZContactCell *)[self tableView:self.tableView cellForRowAtIndexPath:indexPath];
             DZPerson *person = [persons objectAtIndex:[cell.personIndex intValue] ];
