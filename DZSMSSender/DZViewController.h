@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DZViewController : UIViewController
-
+@interface DZViewController : UIViewController<UITextViewDelegate>
+@property (strong, nonatomic)  UITextView *SMSText;
+@property (strong,nonatomic) UIButton *but_clear;
 @end
