@@ -43,6 +43,14 @@
     sortedKeys = [[NSMutableArray alloc] initWithCapacity:10];
     return self;
 }
+- (void)sortPersonsByPinyinName:(NSMutableArray*) personArray
+{
+    //根据person的姓名拼音进行排序
+    personArray = (NSMutableArray *)[persons sortedArrayUsingComparator:^NSComparisonResult(DZPerson *person1, DZPerson *person2) {
+        return [person1.namePinyin compare:person2.namePinyin];
+    }];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -104,10 +112,7 @@
         
         [persons addObject:person];
     }//person对象转换完毕
-    //根据person的姓名拼音进行排序
-    persons = (NSMutableArray *)[persons sortedArrayUsingComparator:^NSComparisonResult(DZPerson *person1, DZPerson *person2) {
-        return [person1.namePinyin compare:person2.namePinyin];
-    }];
+    [self sortPersonsByPinyinName:persons];
     //让排序后的每个person记录自己的索引号
     for(int i = 0 ;i<persons.count ; i++){
         DZPerson *person = [persons objectAtIndex:i];

@@ -7,6 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		181953C018127F85009B4559 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 181953BF18127F85009B4559 /* XCTest.framework */; };
+		181953C118127F85009B4559 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18DC4B2317C303F50066EDF6 /* Foundation.framework */; };
+		181953C218127F85009B4559 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18DC4B2117C303F50066EDF6 /* UIKit.framework */; };
+		181953C818127F85009B4559 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 181953C618127F85009B4559 /* InfoPlist.strings */; };
+		181953CA18127F85009B4559 /* _____Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 181953C918127F85009B4559 /* _____Tests.m */; };
+		181D7D8B17CB246E0045D6FB /* DZPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 181D7D8A17CB246E0045D6FB /* DZPerson.m */; };
+		181D7D8E17CB34930045D6FB /* DZPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 181D7D8D17CB34930045D6FB /* DZPhone.m */; };
+		181D7D9117CB38320045D6FB /* ChineseToPinyin.m in Sources */ = {isa = PBXBuildFile; fileRef = 181D7D9017CB38320045D6FB /* ChineseToPinyin.m */; };
+		181D7D9617CB4CE60045D6FB /* AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 181D7D9217CB4CE60045D6FB /* AppIcon.png */; };
+		181D7D9717CB4CE60045D6FB /* AppIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 181D7D9317CB4CE60045D6FB /* AppIcon@2x.png */; };
+		181D7D9817CB4CE60045D6FB /* Settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 181D7D9417CB4CE60045D6FB /* Settings.png */; };
+		181D7D9917CB4CE60045D6FB /* Settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 181D7D9517CB4CE60045D6FB /* Settings@2x.png */; };
+		182E036417CC42F5005E952D /* DZContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 182E036317CC42F5005E952D /* DZContactCell.m */; };
+		182E036917CC4957005E952D /* pinyin.c in Sources */ = {isa = PBXBuildFile; fileRef = 182E036717CC4957005E952D /* pinyin.c */; };
+		1839CF3717C45944008FB8FB /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1839CF3617C45944008FB8FB /* AddressBook.framework */; };
+		1839CF3917C45949008FB8FB /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1839CF3817C45949008FB8FB /* AddressBookUI.framework */; };
+		183BAB5C17C5ACB600A9DAA8 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 183BAB5B17C5ACB600A9DAA8 /* MessageUI.framework */; };
 		18DC4B2217C303F50066EDF6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18DC4B2117C303F50066EDF6 /* UIKit.framework */; };
 		18DC4B2417C303F50066EDF6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18DC4B2317C303F50066EDF6 /* Foundation.framework */; };
 		18DC4B2617C303F50066EDF6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18DC4B2517C303F50066EDF6 /* CoreGraphics.framework */; };
@@ -18,11 +35,45 @@
 		18DC4B3817C303F50066EDF6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18DC4B3717C303F50066EDF6 /* Default-568h@2x.png */; };
 		18DC4B3B17C303F50066EDF6 /* DZViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DC4B3A17C303F50066EDF6 /* DZViewController.m */; };
 		18DC4B3E17C303F50066EDF6 /* DZViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18DC4B3C17C303F50066EDF6 /* DZViewController_iPhone.xib */; };
-		18DC4B4117C303F50066EDF6 /* DZViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18DC4B3F17C303F50066EDF6 /* DZViewController_iPad.xib */; };
+		18DC4B4A17C35FD10066EDF6 /* DZContactController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DC4B4817C35FD10066EDF6 /* DZContactController.m */; };
+		18DC4B4B17C35FD10066EDF6 /* DZContactController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18DC4B4917C35FD10066EDF6 /* DZContactController.xib */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		181953CC18127F85009B4559 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 18DC4B1617C303F50066EDF6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 18DC4B1D17C303F50066EDF6;
+			remoteInfo = "定制短信";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
-		18DC4B1E17C303F50066EDF6 /* DZSMSSender.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DZSMSSender.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		181953BE18127F85009B4559 /* 定制短信 Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "定制短信 Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		181953BF18127F85009B4559 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		181953C518127F85009B4559 /* 定制短信 Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "定制短信 Tests-Info.plist"; sourceTree = "<group>"; };
+		181953C718127F85009B4559 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		181953C918127F85009B4559 /* _____Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "_____Tests.m"; sourceTree = "<group>"; };
+		181953CB18127F85009B4559 /* 定制短信 Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "定制短信 Tests-Prefix.pch"; sourceTree = "<group>"; };
+		181D7D8917CB246E0045D6FB /* DZPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZPerson.h; sourceTree = "<group>"; };
+		181D7D8A17CB246E0045D6FB /* DZPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZPerson.m; sourceTree = "<group>"; };
+		181D7D8C17CB34920045D6FB /* DZPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZPhone.h; sourceTree = "<group>"; };
+		181D7D8D17CB34930045D6FB /* DZPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZPhone.m; sourceTree = "<group>"; };
+		181D7D8F17CB38310045D6FB /* ChineseToPinyin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChineseToPinyin.h; sourceTree = "<group>"; };
+		181D7D9017CB38320045D6FB /* ChineseToPinyin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChineseToPinyin.m; sourceTree = "<group>"; };
+		181D7D9217CB4CE60045D6FB /* AppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon.png; sourceTree = "<group>"; };
+		181D7D9317CB4CE60045D6FB /* AppIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon@2x.png"; sourceTree = "<group>"; };
+		181D7D9417CB4CE60045D6FB /* Settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Settings.png; sourceTree = "<group>"; };
+		181D7D9517CB4CE60045D6FB /* Settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Settings@2x.png"; sourceTree = "<group>"; };
+		182E036217CC42F5005E952D /* DZContactCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZContactCell.h; sourceTree = "<group>"; };
+		182E036317CC42F5005E952D /* DZContactCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZContactCell.m; sourceTree = "<group>"; };
+		182E036717CC4957005E952D /* pinyin.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pinyin.c; sourceTree = "<group>"; };
+		182E036817CC4957005E952D /* pinyin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pinyin.h; sourceTree = "<group>"; };
+		1839CF3617C45944008FB8FB /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		1839CF3817C45949008FB8FB /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		183BAB5B17C5ACB600A9DAA8 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		18DC4B1E17C303F50066EDF6 /* 定制短信.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "定制短信.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18DC4B2117C303F50066EDF6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		18DC4B2317C303F50066EDF6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		18DC4B2517C303F50066EDF6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -38,14 +89,29 @@
 		18DC4B3917C303F50066EDF6 /* DZViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DZViewController.h; sourceTree = "<group>"; };
 		18DC4B3A17C303F50066EDF6 /* DZViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DZViewController.m; sourceTree = "<group>"; };
 		18DC4B3D17C303F50066EDF6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DZViewController_iPhone.xib; sourceTree = "<group>"; };
-		18DC4B4017C303F50066EDF6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DZViewController_iPad.xib; sourceTree = "<group>"; };
+		18DC4B4717C35FD10066EDF6 /* DZContactController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZContactController.h; sourceTree = "<group>"; };
+		18DC4B4817C35FD10066EDF6 /* DZContactController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZContactController.m; sourceTree = "<group>"; };
+		18DC4B4917C35FD10066EDF6 /* DZContactController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DZContactController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		181953BB18127F85009B4559 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				181953C018127F85009B4559 /* XCTest.framework in Frameworks */,
+				181953C218127F85009B4559 /* UIKit.framework in Frameworks */,
+				181953C118127F85009B4559 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		18DC4B1B17C303F50066EDF6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				183BAB5C17C5ACB600A9DAA8 /* MessageUI.framework in Frameworks */,
+				1839CF3917C45949008FB8FB /* AddressBookUI.framework in Frameworks */,
+				1839CF3717C45944008FB8FB /* AddressBook.framework in Frameworks */,
 				18DC4B2217C303F50066EDF6 /* UIKit.framework in Frameworks */,
 				18DC4B2417C303F50066EDF6 /* Foundation.framework in Frameworks */,
 				18DC4B2617C303F50066EDF6 /* CoreGraphics.framework in Frameworks */,
@@ -55,10 +121,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		181953C318127F85009B4559 /* 定制短信 Tests */ = {
+			isa = PBXGroup;
+			children = (
+				181953C918127F85009B4559 /* _____Tests.m */,
+				181953C418127F85009B4559 /* Supporting Files */,
+			);
+			path = "定制短信 Tests";
+			sourceTree = "<group>";
+		};
+		181953C418127F85009B4559 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				181953C518127F85009B4559 /* 定制短信 Tests-Info.plist */,
+				181953C618127F85009B4559 /* InfoPlist.strings */,
+				181953CB18127F85009B4559 /* 定制短信 Tests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		18DC4B1517C303F50066EDF6 = {
 			isa = PBXGroup;
 			children = (
+				183BAB5B17C5ACB600A9DAA8 /* MessageUI.framework */,
+				1839CF3817C45949008FB8FB /* AddressBookUI.framework */,
+				1839CF3617C45944008FB8FB /* AddressBook.framework */,
 				18DC4B2717C303F50066EDF6 /* DZSMSSender */,
+				181953C318127F85009B4559 /* 定制短信 Tests */,
 				18DC4B2017C303F50066EDF6 /* Frameworks */,
 				18DC4B1F17C303F50066EDF6 /* Products */,
 			);
@@ -67,7 +156,8 @@
 		18DC4B1F17C303F50066EDF6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				18DC4B1E17C303F50066EDF6 /* DZSMSSender.app */,
+				18DC4B1E17C303F50066EDF6 /* 定制短信.app */,
+				181953BE18127F85009B4559 /* 定制短信 Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -78,6 +168,7 @@
 				18DC4B2117C303F50066EDF6 /* UIKit.framework */,
 				18DC4B2317C303F50066EDF6 /* Foundation.framework */,
 				18DC4B2517C303F50066EDF6 /* CoreGraphics.framework */,
+				181953BF18127F85009B4559 /* XCTest.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -85,13 +176,25 @@
 		18DC4B2717C303F50066EDF6 /* DZSMSSender */ = {
 			isa = PBXGroup;
 			children = (
+				181D7D8F17CB38310045D6FB /* ChineseToPinyin.h */,
+				181D7D9017CB38320045D6FB /* ChineseToPinyin.m */,
+				182E036717CC4957005E952D /* pinyin.c */,
+				182E036817CC4957005E952D /* pinyin.h */,
 				18DC4B3017C303F50066EDF6 /* DZAppDelegate.h */,
 				18DC4B3117C303F50066EDF6 /* DZAppDelegate.m */,
 				18DC4B3917C303F50066EDF6 /* DZViewController.h */,
 				18DC4B3A17C303F50066EDF6 /* DZViewController.m */,
 				18DC4B3C17C303F50066EDF6 /* DZViewController_iPhone.xib */,
-				18DC4B3F17C303F50066EDF6 /* DZViewController_iPad.xib */,
 				18DC4B2817C303F50066EDF6 /* Supporting Files */,
+				18DC4B4717C35FD10066EDF6 /* DZContactController.h */,
+				18DC4B4817C35FD10066EDF6 /* DZContactController.m */,
+				182E036217CC42F5005E952D /* DZContactCell.h */,
+				182E036317CC42F5005E952D /* DZContactCell.m */,
+				181D7D8C17CB34920045D6FB /* DZPhone.h */,
+				181D7D8D17CB34930045D6FB /* DZPhone.m */,
+				18DC4B4917C35FD10066EDF6 /* DZContactController.xib */,
+				181D7D8917CB246E0045D6FB /* DZPerson.h */,
+				181D7D8A17CB246E0045D6FB /* DZPerson.m */,
 			);
 			path = DZSMSSender;
 			sourceTree = "<group>";
@@ -101,6 +204,10 @@
 			children = (
 				18DC4B2917C303F50066EDF6 /* DZSMSSender-Info.plist */,
 				18DC4B2A17C303F50066EDF6 /* InfoPlist.strings */,
+				181D7D9217CB4CE60045D6FB /* AppIcon.png */,
+				181D7D9317CB4CE60045D6FB /* AppIcon@2x.png */,
+				181D7D9417CB4CE60045D6FB /* Settings.png */,
+				181D7D9517CB4CE60045D6FB /* Settings@2x.png */,
 				18DC4B2D17C303F50066EDF6 /* main.m */,
 				18DC4B2F17C303F50066EDF6 /* DZSMSSender-Prefix.pch */,
 				18DC4B3317C303F50066EDF6 /* Default.png */,
@@ -113,9 +220,27 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		18DC4B1D17C303F50066EDF6 /* DZSMSSender */ = {
+		181953BD18127F85009B4559 /* 定制短信 Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 18DC4B4417C303F50066EDF6 /* Build configuration list for PBXNativeTarget "DZSMSSender" */;
+			buildConfigurationList = 181953D018127F85009B4559 /* Build configuration list for PBXNativeTarget "定制短信 Tests" */;
+			buildPhases = (
+				181953BA18127F85009B4559 /* Sources */,
+				181953BB18127F85009B4559 /* Frameworks */,
+				181953BC18127F85009B4559 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				181953CD18127F85009B4559 /* PBXTargetDependency */,
+			);
+			name = "定制短信 Tests";
+			productName = "定制短信 Tests";
+			productReference = 181953BE18127F85009B4559 /* 定制短信 Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		18DC4B1D17C303F50066EDF6 /* 定制短信 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 18DC4B4417C303F50066EDF6 /* Build configuration list for PBXNativeTarget "定制短信" */;
 			buildPhases = (
 				18DC4B1A17C303F50066EDF6 /* Sources */,
 				18DC4B1B17C303F50066EDF6 /* Frameworks */,
@@ -125,9 +250,9 @@
 			);
 			dependencies = (
 			);
-			name = DZSMSSender;
+			name = "定制短信";
 			productName = DZSMSSender;
-			productReference = 18DC4B1E17C303F50066EDF6 /* DZSMSSender.app */;
+			productReference = 18DC4B1E17C303F50066EDF6 /* 定制短信.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -137,8 +262,13 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = DZ;
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = linx;
+				TargetAttributes = {
+					181953BD18127F85009B4559 = {
+						TestTargetID = 18DC4B1D17C303F50066EDF6;
+					};
+				};
 			};
 			buildConfigurationList = 18DC4B1917C303F50066EDF6 /* Build configuration list for PBXProject "DZSMSSender" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -152,12 +282,21 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				18DC4B1D17C303F50066EDF6 /* DZSMSSender */,
+				18DC4B1D17C303F50066EDF6 /* 定制短信 */,
+				181953BD18127F85009B4559 /* 定制短信 Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		181953BC18127F85009B4559 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				181953C818127F85009B4559 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		18DC4B1C17C303F50066EDF6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -167,13 +306,25 @@
 				18DC4B3617C303F50066EDF6 /* Default@2x.png in Resources */,
 				18DC4B3817C303F50066EDF6 /* Default-568h@2x.png in Resources */,
 				18DC4B3E17C303F50066EDF6 /* DZViewController_iPhone.xib in Resources */,
-				18DC4B4117C303F50066EDF6 /* DZViewController_iPad.xib in Resources */,
+				18DC4B4B17C35FD10066EDF6 /* DZContactController.xib in Resources */,
+				181D7D9617CB4CE60045D6FB /* AppIcon.png in Resources */,
+				181D7D9717CB4CE60045D6FB /* AppIcon@2x.png in Resources */,
+				181D7D9817CB4CE60045D6FB /* Settings.png in Resources */,
+				181D7D9917CB4CE60045D6FB /* Settings@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		181953BA18127F85009B4559 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				181953CA18127F85009B4559 /* _____Tests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		18DC4B1A17C303F50066EDF6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -181,12 +332,34 @@
 				18DC4B2E17C303F50066EDF6 /* main.m in Sources */,
 				18DC4B3217C303F50066EDF6 /* DZAppDelegate.m in Sources */,
 				18DC4B3B17C303F50066EDF6 /* DZViewController.m in Sources */,
+				18DC4B4A17C35FD10066EDF6 /* DZContactController.m in Sources */,
+				181D7D8B17CB246E0045D6FB /* DZPerson.m in Sources */,
+				181D7D8E17CB34930045D6FB /* DZPhone.m in Sources */,
+				181D7D9117CB38320045D6FB /* ChineseToPinyin.m in Sources */,
+				182E036417CC42F5005E952D /* DZContactCell.m in Sources */,
+				182E036917CC4957005E952D /* pinyin.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		181953CD18127F85009B4559 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 18DC4B1D17C303F50066EDF6 /* 定制短信 */;
+			targetProxy = 181953CC18127F85009B4559 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
+		181953C618127F85009B4559 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				181953C718127F85009B4559 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		18DC4B2A17C303F50066EDF6 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -203,17 +376,68 @@
 			name = DZViewController_iPhone.xib;
 			sourceTree = "<group>";
 		};
-		18DC4B3F17C303F50066EDF6 /* DZViewController_iPad.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				18DC4B4017C303F50066EDF6 /* en */,
-			);
-			name = DZViewController_iPad.xib;
-			sourceTree = "<group>";
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		181953CE18127F85009B4559 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/定制短信.app/定制短信";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "定制短信 Tests/定制短信 Tests-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "定制短信 Tests/定制短信 Tests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		181953CF18127F85009B4559 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/定制短信.app/定制短信";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				ENABLE_NS_ASSERTIONS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "定制短信 Tests/定制短信 Tests-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "定制短信 Tests/定制短信 Tests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
 		18DC4B4217C303F50066EDF6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -239,7 +463,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -264,7 +488,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -279,6 +503,7 @@
 				GCC_PREFIX_HEADER = "DZSMSSender/DZSMSSender-Prefix.pch";
 				INFOPLIST_FILE = "DZSMSSender/DZSMSSender-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -290,6 +515,7 @@
 				GCC_PREFIX_HEADER = "DZSMSSender/DZSMSSender-Prefix.pch";
 				INFOPLIST_FILE = "DZSMSSender/DZSMSSender-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -297,6 +523,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		181953D018127F85009B4559 /* Build configuration list for PBXNativeTarget "定制短信 Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				181953CE18127F85009B4559 /* Debug */,
+				181953CF18127F85009B4559 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		18DC4B1917C303F50066EDF6 /* Build configuration list for PBXProject "DZSMSSender" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -306,13 +541,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		18DC4B4417C303F50066EDF6 /* Build configuration list for PBXNativeTarget "DZSMSSender" */ = {
+		18DC4B4417C303F50066EDF6 /* Build configuration list for PBXNativeTarget "定制短信" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				18DC4B4517C303F50066EDF6 /* Debug */,
 				18DC4B4617C303F50066EDF6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
