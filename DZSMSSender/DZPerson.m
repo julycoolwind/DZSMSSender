@@ -7,6 +7,7 @@
 //
 
 #import "DZPerson.h"
+#import "ChineseToPinyin.h"
 
 @implementation DZPerson
 
@@ -25,5 +26,10 @@
         firstLetter =[[NSString stringWithFormat:@"%c",pinyinFirstLetter([self.fullName characterAtIndex:0])] uppercaseString];
     }
     return firstLetter;
+}
+
+-(void)setFullName:(NSString *)fullName{
+    _fullName = [fullName copy];
+    _namePinyin = [ChineseToPinyin pinyinFromChiniseString:fullName];
 }
 @end

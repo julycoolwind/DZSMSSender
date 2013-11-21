@@ -104,7 +104,7 @@
         CFRelease(thisPerson);
         DZPerson *person = [[DZPerson alloc] init];
         person.fullName = [NSString stringWithFormat:@"%@%@",lastName,firstName];
-        person.namePinyin = [ChineseToPinyin pinyinFromChiniseString:person.fullName];
+        //person.namePinyin = [ChineseToPinyin pinyinFromChiniseString:person.fullName];
         person.nickName = CFBridgingRelease(ABRecordCopyValue(thisPerson,kABPersonNicknameProperty));
         if(person.nickName == NULL){
             person.nickName = person.fullName;
