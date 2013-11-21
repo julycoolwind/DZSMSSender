@@ -16,4 +16,14 @@
     self.personIndex = [[NSNumber alloc] init];
     return self;
 }
+
+-(NSString *) fistrLetterOfFullName{
+    NSString *firstLetter;
+    if (self.fullName.length == 0 || self.fullName == NULL) {
+        firstLetter = @"#";
+    }else{
+        firstLetter =[[NSString stringWithFormat:@"%c",pinyinFirstLetter([self.fullName characterAtIndex:0])] uppercaseString];
+    }
+    return firstLetter;
+}
 @end

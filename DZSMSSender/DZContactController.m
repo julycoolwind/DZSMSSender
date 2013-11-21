@@ -55,19 +55,13 @@
         person.personIndex = [NSNumber numberWithInt:i];
 
         //便利person数组，取得每个联系人的姓名首字母，并放置如索引数组
-        NSString *firstLetter;
-        if (person.fullName.length == 0 || person.fullName == NULL) {
-            firstLetter = @"#";
-        }else{
-            firstLetter =[[NSString stringWithFormat:@"%c",pinyinFirstLetter([person.fullName characterAtIndex:0])] uppercaseString];
-        }
-        if([sortedPerson objectForKey:firstLetter]==NULL){
+        if([sortedPerson objectForKey:person.fistrLetterOfFullName]==NULL){
             NSMutableArray *items = [[NSMutableArray alloc] init];
             [items addObject:person];
-            [sortedPerson setObject:items forKey:firstLetter];
-            [sortedKeys addObject:firstLetter];
+            [sortedPerson setObject:items forKey:person.fistrLetterOfFullName];
+            [sortedKeys addObject:person.fistrLetterOfFullName];
         }else{
-            [[sortedPerson objectForKey:firstLetter] addObject:person];
+            [[sortedPerson objectForKey:person.fistrLetterOfFullName] addObject:person];
         }
     }
 }

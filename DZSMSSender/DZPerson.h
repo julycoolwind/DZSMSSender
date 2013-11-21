@@ -14,4 +14,5 @@
 @property (strong,nonatomic) NSString *namePinyin;
 @property (strong,nonatomic) NSMutableArray *phones;
 @property (strong, nonatomic) NSNumber *personIndex;
+-(NSString *) fistrLetterOfFullName;
 @end
