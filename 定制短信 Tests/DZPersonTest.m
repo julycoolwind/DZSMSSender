@@ -22,7 +22,7 @@ DZPerson *person;
     person = [[DZPerson alloc]init];
     person.fullName = @"fullName";
     person.nickName = @"nickName";
-    person.namePinyin = @"namePinyin";
+    //person.namePinyin = @"namePinyin";
     person.personIndex = @3;
     
 }
@@ -39,6 +39,12 @@ DZPerson *person;
     XCTAssertEqual(person.fullName, @"fullName",@"person do not has the name we set");
 }
 
+-(void)testSetChineseFullnameGetNamePinyin
+{
+    person.fullName = @"张三";
+    XCTAssertEqualObjects(person.namePinyin, @"ZhangSan", @"set chinese name to person can not get namepinyin");
+}
+
 -(void)testPersonSholeHasANickName
 {
     XCTAssertEqual(person.nickName, @"nickName",@"person do not has the name we set");
@@ -46,7 +52,7 @@ DZPerson *person;
 
 -(void)testPersonSholeHasANamePinyin
 {
-    XCTAssertEqual(person.namePinyin, @"namePinyin",@"person do not has the name we set");
+    XCTAssertEqualObjects(person.namePinyin, @"Fullname",@"person do not has the name we set");
 }
 
 -(void)testPersonSholeHasAPersonIndex

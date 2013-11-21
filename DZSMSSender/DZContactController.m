@@ -46,10 +46,12 @@
 - (void)sortPersonsByPinyinName:(NSMutableArray*) personArray
 {
     //根据person的姓名拼音进行排序
+    //**已由DataSource实现
     personArray = (NSMutableArray *)[persons sortedArrayUsingComparator:^NSComparisonResult(DZPerson *person1, DZPerson *person2) {
         return [person1.namePinyin compare:person2.namePinyin];
     }];
     //让排序后的每个person记录自己的索引号
+    //**已由DataSource实现
     for(int i = 0 ;i<personArray.count ; i++){
         DZPerson *person = [persons objectAtIndex:i];
         person.personIndex = [NSNumber numberWithInt:i];
