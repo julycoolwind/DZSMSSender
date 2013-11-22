@@ -63,4 +63,31 @@ DZContactTableDataSource* source;
     
 }
 
+-(void)testContactDataSourceHasPersonDictionary
+{
+    XCTAssertNotNil(source.personDic, @"The ContactDataSource have not PersonDic");
+}
+
+-(void)testPersonDicHas2Menber
+{
+    XCTAssertEqualObjects([NSNumber numberWithInt:source.personDic.count],[NSNumber numberWithInt:2], @"personDic in contactDataSource has wrong item number");
+}
+
+-(void)testContactDataSourceHasPersonSortedKeys
+{
+    XCTAssertNotNil(source.sortedKeys, @"The ContactDataSource have not sortedKeys for PersonDic");
+}
+
+-(void)testContactDataSourceSortedKeysHas2Items
+{
+    
+    XCTAssertEqualObjects([NSNumber numberWithInt:source.sortedKeys.count],@2, @"The ContactDataSource  sortedKeys should have 2 itmes");
+}
+
+-(void)testContactDataSourceSortedKeysHasRightItems
+{
+    XCTAssertTrue([source.sortedKeys indexOfObject:@"Z"]>=0 , @"The ContactDataSource sortedDeys do not have item 'Z'");
+    XCTAssertTrue([source.sortedKeys indexOfObject:@"L"]>=0 , @"The ContactDataSource sortedDeys do not have item 'L'");
+}
+
 @end

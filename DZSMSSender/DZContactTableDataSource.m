@@ -11,6 +11,14 @@
 
 @implementation DZContactTableDataSource
 
+-(id)init
+{
+    self = [super init];
+    _personDic = [[NSMutableDictionary alloc]init];
+    _sortedKeys = [[NSMutableArray alloc]init];
+    return self;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return 0;
@@ -41,6 +49,16 @@
     for(int i = 0 ;i<sortedArray.count ; i++){
         DZPerson *person = [sortedArray objectAtIndex:i];
         person.personIndex = [NSNumber numberWithInt:i];
+        
+        if([_personDic objectForKey:person.fistrLetterOfFullName]==NULL){
+            NSMutableArray *items = [[NSMutableArray alloc] init];
+            [items addObject:person];
+            [_personDic setObject:items forKey:person.fistrLetterOfFullName];
+            [_sortedKeys addObject:person.fistrLetterOfFullName];
+        }else{
+            [[_personDic objectForKey:person.fistrLetterOfFullName] addObject:person];
+        }
+
     }
     return sortedArray;
 }

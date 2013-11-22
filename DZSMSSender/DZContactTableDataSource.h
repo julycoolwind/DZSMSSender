@@ -11,4 +11,6 @@
 @interface DZContactTableDataSource : NSObject<UITableViewDataSource>
 @property(nonatomic) NSMutableArray *personArray;
 @property(nonatomic,readonly) NSMutableArray *sortedPersonArray;
+@property(nonatomic)NSMutableDictionary *personDic;
+@property(nonatomic)NSMutableArray *sortedKeys;
 @end
