@@ -66,6 +66,10 @@
             [[sortedPerson objectForKey:person.fistrLetterOfFullName] addObject:person];
         }
     }
+    //对索引数组进行排序
+    sortedKeys = (NSMutableArray *)[sortedKeys sortedArrayUsingComparator:^NSComparisonResult(NSString *string1, NSString *string2) {
+        return [ string1 compare:string2];
+    }];
 }
 
 - (void)viewDidLoad
@@ -131,10 +135,7 @@
     }//person对象转换完毕
     [self sortPersonsByPinyinName:persons];
     
-    //对索引数组进行排序
-    sortedKeys = (NSMutableArray *)[sortedKeys sortedArrayUsingComparator:^NSComparisonResult(NSString *string1, NSString *string2) {
-        return [ string1 compare:string2];
-    }];
+    
     
     [self.tableView setEditing:YES animated:YES];
     selectedRow = [[NSMutableArray alloc] initWithCapacity:50];
