@@ -12,4 +12,6 @@
 
 @interface DZContactController : UITableViewController<MFMessageComposeViewControllerDelegate,UINavigationControllerDelegate,UIAlertViewDelegate>
 -(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil SMSTemplet:(NSString *) SMSTempletIn;
+@property(strong) id <UITableViewDataSource> dataSource;
+@property(strong) id <UITableViewDelegate> tableViewDelegate;
 @end

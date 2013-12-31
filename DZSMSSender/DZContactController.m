@@ -27,6 +27,8 @@
     NSMutableDictionary *sortedPerson;
     NSMutableArray *sortedKeys;
 }
+
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -75,6 +77,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.tableView.dataSource = self.dataSource;
+    self.tableView.delegate = self.tableViewDelegate;
     //获取对通讯录的引用
     ABAddressBookRef addressBook = nil;
     if ([[UIDevice currentDevice].systemVersion floatValue] >= 6.0)
@@ -133,6 +137,7 @@
         
         [persons addObject:person];
     }//person对象转换完毕
+    //为sortedPerson 和sortedKeys赋值
     [self sortPersonsByPinyinName:persons];
     
     

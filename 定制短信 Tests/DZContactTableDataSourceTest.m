@@ -73,6 +73,17 @@ DZContactTableDataSource* source;
     XCTAssertEqualObjects([NSNumber numberWithInt:source.personDic.count],[NSNumber numberWithInt:2], @"personDic in contactDataSource has wrong item number");
 }
 
+-(void)testPersonDicHasMenber_reload
+{
+    person = [[DZPerson alloc]init];
+    NSMutableArray *phones = [[NSMutableArray alloc]initWithObjects:@1,@2, nil];
+    person.phones = phones;
+    [persons removeAllObjects];
+    [persons addObject:person];
+    [source setPersonArray:persons];
+    XCTAssertTrue(source.personDic.count==1, @"do not have right number of count in persondic when reload");
+}
+
 -(void)testContactDataSourceHasPersonSortedKeys
 {
     XCTAssertNotNil(source.sortedKeys, @"The ContactDataSource have not sortedKeys for PersonDic");
@@ -90,4 +101,45 @@ DZContactTableDataSource* source;
     XCTAssertTrue([source.sortedKeys indexOfObject:@"L"]>=0 , @"The ContactDataSource sortedDeys do not have item 'L'");
 }
 
+-(void)testContactDataSourceHasRightNumberOfSectionsInTableView
+{
+    XCTAssertTrue([source numberOfSectionsInTableView:nil]==source.sortedKeys.count,@"ContactDataSource do not have right numberOfSectionsInTableView");
+}
+
+-(void)testContactDataSourceHasRightNumberOfRowsInSectionBySetup
+{
+    XCTAssertTrue([source tableView:nil numberOfRowsInSection:0]==1, @"do not have right number of rows in section 0");
+    XCTAssertTrue([source tableView:nil numberOfRowsInSection:1]==1, @"do not have right number of rows in section 1");
+}
+
+-(void)testContactDataSourceNumberOfRowsInSection_OnePersonHas2Phone
+{
+    person = [[DZPerson alloc]init];
+    NSMutableArray *phones = [[NSMutableArray alloc]initWithObjects:@1,@2, nil];
+    person.phones = phones;
+    [persons removeAllObjects];
+    [persons addObject:person];
+    [source setPersonArray:persons];
+    XCTAssertTrue([source tableView:nil numberOfRowsInSection:0]==2, @"do not have right number of rows in section 0 one person tow phones");
+}
+
+-(void)testContactDataSourceNumberOfRowsInSection_3PersonInSameSectionHas2PhoneEachTheLastNoPhone
+{
+    [persons removeAllObjects];
+    NSMutableArray *phones;
+    person = [[DZPerson alloc]init];
+    phones = [[NSMutableArray alloc]initWithObjects:@1,@2, nil];
+    person.phones = phones;
+    [persons addObject:person];
+    person = [[DZPerson alloc]init];
+    phones = [[NSMutableArray alloc]initWithObjects:@1,@2, nil];
+    person.phones = phones;
+    [persons addObject:person];
+    person = [[DZPerson alloc]init];
+    phones = [[NSMutableArray alloc]init];
+    person.phones = phones;
+    [persons addObject:person];
+    [source setPersonArray:persons];
+    XCTAssertTrue([source tableView:nil numberOfRowsInSection:0]==5, @"do not have right number of rows in section 0 one person tow phones");
+}
 @end
