@@ -142,4 +142,8 @@ DZContactTableDataSource* source;
     [source setPersonArray:persons];
     XCTAssertTrue([source tableView:nil numberOfRowsInSection:0]==5, @"do not have right number of rows in section 0 one person tow phones");
 }
+
+-(void)testEditingStyleForRowAtIndexPath{
+    XCTAssertTrue([source tableView:nil editingStyleForRowAtIndexPath:nil] == (UITableViewCellEditingStyleDelete|UITableViewCellEditingStyleInsert), @"Table view data source not set the style for row at index path right.");
+}
 @end

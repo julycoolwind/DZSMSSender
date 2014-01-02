@@ -19,9 +19,18 @@
     return self;
 }
 
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return _sortedKeys.count;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 0;
+    int rowCount = 0;
+    for (DZPerson *person in [_personDic objectForKey:[_sortedKeys objectAtIndex:section]]) {
+        rowCount += person.phones.count==0?1:person.phones.count;
+    }
+    return rowCount;
 }
 
 
@@ -33,7 +42,13 @@
 -(void)setPersonArray:(NSMutableArray *)personArray
 {
     _personArray = personArray;
+    
     _sortedPersonArray = [self sortPersonsByPinyinName:_personArray];
+}
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return UITableViewCellEditingStyleDelete | UITableViewCellEditingStyleInsert;
 }
 
 
@@ -45,6 +60,8 @@
     sortedArray = (NSMutableArray *)[personArray sortedArrayUsingComparator:^NSComparisonResult(DZPerson *person1, DZPerson *person2) {
         return [person1.namePinyin compare:person2.namePinyin];
     }];
+    [_personDic removeAllObjects];
+    [_sortedKeys removeAllObjects];
     //遍历排序后的person数组让每个person对象记录自己的索引号，索引号用于点击时记录那个person对象被选中
     for(int i = 0 ;i<sortedArray.count ; i++){
         DZPerson *person = [sortedArray objectAtIndex:i];

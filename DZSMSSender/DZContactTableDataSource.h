@@ -13,4 +13,5 @@
 @property(nonatomic,readonly) NSMutableArray *sortedPersonArray;
 @property(nonatomic)NSMutableDictionary *personDic;
 @property(nonatomic)NSMutableArray *sortedKeys;
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath;
 @end
