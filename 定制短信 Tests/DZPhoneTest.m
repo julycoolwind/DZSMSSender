@@ -7,8 +7,12 @@
 //
 
 #import <XCTest/XCTest.h>
+#import <objc/runtime.h>
+#import "DZPhone.h"
 
-@interface DZPhoneTest : XCTestCase
+@interface DZPhoneTest : XCTestCase{
+    DZPhone *phone;
+}
 
 @end
 
@@ -17,18 +21,37 @@
 - (void)setUp
 {
     [super setUp];
-    // Put setup code here; it will be run once, before the first test case.
+    phone = [[DZPhone alloc] init];
 }
 
 - (void)tearDown
 {
-    // Put teardown code here; it will be run once, after the last test case.
+    phone = nil;
     [super tearDown];
 }
 
-- (void)testExample
+- (void)testPhoneShouldHasAPhoneNumberProperty
 {
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+    objc_property_t phoneNumber = class_getProperty([DZPhone class], "PhoneNumber");
+    XCTAssertTrue(phoneNumber != NULL, @"DZPHone should has a phone number property");
 }
+
+-(void)testPhoneShouldHasAPhoneLableProperty{
+    objc_property_t phoneLable = class_getProperty([DZPhone class], "PhoneLable");
+    XCTAssertTrue(phoneLable != NULL, @"DZPhone should has a phone lable property");
+}
+
+-(void)testPhoneStringWithPhoneLableAndNumber{
+    phone.PhoneLable = @"lable";
+    phone.PhoneNumber = @"1234567";
+    XCTAssertTrue([ @"lable1234567" isEqualToString:[phone phoneString]], @"Get the phoneString wrong,with lable and number.");
+}
+
+-(void)testPhoneShouldHasAPersonIndexProperty{
+    objc_property_t personIndex = class_getProperty([DZPhone class], "PersonIndex");
+    XCTAssertTrue(personIndex != NULL, @"DZPhone should has a PersonIndex property");
+}
+
+
 
 @end

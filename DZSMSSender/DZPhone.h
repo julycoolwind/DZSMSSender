@@ -11,5 +11,6 @@
 @interface DZPhone : NSObject
 @property (strong,nonatomic) NSString *PhoneNumber;
 @property (strong,nonatomic) NSString *PhoneLable;
+@property (strong,nonatomic) NSNumber *PersonIndex;
 -(NSString *)phoneString;
 @end
