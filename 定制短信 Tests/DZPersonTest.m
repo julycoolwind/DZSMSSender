@@ -9,6 +9,7 @@
 #import <XCTest/XCTest.h>
 #import <Foundation/NSArray.h>
 #import "DZPerson.h"
+#import "DZPhone.h"
 
 @interface DZPersonTest : XCTestCase
 
@@ -89,6 +90,11 @@ DZPerson *person;
     XCTAssertEqualObjects(person.fistrLetterOfFullName, @"Z", @"person has a '赵' name should has a firstletter 'z'");
 }
 
-
+-(void)testSyncPersonIndexInPhoneWhenPersonIndexBeenSeted{
+    NSMutableArray *phones = [[NSMutableArray alloc] initWithObjects:[[DZPhone alloc]init], nil];
+    person.phones = phones;
+    person.personIndex = @5;
+    XCTAssertTrue([@5 isEqualToNumber:[(DZPhone *)[phones objectAtIndex:0] PersonIndex]],@"PersonIndex in phone not seted when personindex seted in DZPerson");
+}
 
 @end

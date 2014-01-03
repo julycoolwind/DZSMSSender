@@ -7,6 +7,7 @@
 //
 
 #import "DZPerson.h"
+#import "DZPhone.h"
 #import "ChineseToPinyin.h"
 
 @implementation DZPerson
@@ -31,5 +32,13 @@
 -(void)setFullName:(NSString *)fullName{
     _fullName = [fullName copy];
     _namePinyin = [ChineseToPinyin pinyinFromChiniseString:fullName];
+}
+
+-(void)setPersonIndex:(NSNumber *)personIndex{
+    _personIndex = [personIndex copy];
+    assert(self.phones != NULL);
+    for (DZPhone *phone in self.phones) {
+        [phone setPersonIndex:[_personIndex copy]];
+    }
 }
 @end

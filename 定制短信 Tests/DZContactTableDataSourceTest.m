@@ -9,6 +9,7 @@
 #import <XCTest/XCTest.h>
 #import "DZContactTableDataSource.h"
 #import "DZPerson.h"
+#import "DZPhone.h"
 
 @interface DZContactTableDataSourceTest : XCTestCase
 
@@ -76,7 +77,7 @@ DZContactTableDataSource* source;
 -(void)testPersonDicHasMenber_reload
 {
     person = [[DZPerson alloc]init];
-    NSMutableArray *phones = [[NSMutableArray alloc]initWithObjects:@1,@2, nil];
+    NSMutableArray *phones = [[NSMutableArray alloc]initWithObjects:[[DZPhone alloc]init],[[DZPhone alloc]init], nil];
     person.phones = phones;
     [persons removeAllObjects];
     [persons addObject:person];
@@ -115,7 +116,7 @@ DZContactTableDataSource* source;
 -(void)testContactDataSourceNumberOfRowsInSection_OnePersonHas2Phone
 {
     person = [[DZPerson alloc]init];
-    NSMutableArray *phones = [[NSMutableArray alloc]initWithObjects:@1,@2, nil];
+    NSMutableArray *phones = [[NSMutableArray alloc]initWithObjects:[[DZPhone alloc]init],[[DZPhone alloc]init], nil];
     person.phones = phones;
     [persons removeAllObjects];
     [persons addObject:person];
@@ -128,11 +129,11 @@ DZContactTableDataSource* source;
     [persons removeAllObjects];
     NSMutableArray *phones;
     person = [[DZPerson alloc]init];
-    phones = [[NSMutableArray alloc]initWithObjects:@1,@2, nil];
+    phones = [[NSMutableArray alloc]initWithObjects:[[DZPhone alloc]init],[[DZPhone alloc]init], nil];
     person.phones = phones;
     [persons addObject:person];
     person = [[DZPerson alloc]init];
-    phones = [[NSMutableArray alloc]initWithObjects:@1,@2, nil];
+    phones = [[NSMutableArray alloc]initWithObjects:[[DZPhone alloc]init],[[DZPhone alloc]init], nil];
     person.phones = phones;
     [persons addObject:person];
     person = [[DZPerson alloc]init];
