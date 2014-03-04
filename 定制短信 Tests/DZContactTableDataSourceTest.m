@@ -158,7 +158,7 @@ DZContactTableDataSource* source;
     person.nickName = @"老三";
     person.personIndex = @3;
     source.personArray = [[NSMutableArray alloc]initWithObjects:person, nil];
-    UITableViewCell *cell = [source tableView:nil cellForRowAtIndexPath:[[NSIndexPath alloc] initWithIndex:0]];
+    UITableViewCell *cell = [source tableView:nil cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
     XCTAssertTrue([cell.textLabel.text isEqualToString:@"张三"],@"The text label not right when person has a name.");
     XCTAssertTrue([cell.detailTextLabel.text isEqualToString:@"label1234567"],@"The detailTextLabel not right with person has a phone");
 }
@@ -176,11 +176,12 @@ DZContactTableDataSource* source;
     person.nickName = @"老三";
     person.personIndex = @3;
     source.personArray = [[NSMutableArray alloc]initWithObjects:person, nil];
-    UITableViewCell *cell = [source tableView:nil cellForRowAtIndexPath:[[NSIndexPath alloc] initWithIndex:0]];
+    UITableViewCell *cell = [source tableView:nil cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
     XCTAssertTrue([cell.textLabel.text isEqualToString:@"张三"],@"The text label not right when person has a name.");
     XCTAssertTrue([cell.detailTextLabel.text isEqualToString:@"label1234567"],@"The detailTextLabel not right with person has a phone");
-    cell = [source tableView:nil cellForRowAtIndexPath:[[NSIndexPath alloc] initWithIndex:1]];
-    XCTAssertTrue([cell.textLabel.text isEqualToString:@"label112345678"],@"The text label not right when person has a name.");
+    cell = [source tableView:nil cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
+    XCTAssertEqualObjects(cell.detailTextLabel.text, @"label112345678", @"The text label not right when person has a name.");
+
 }
 
 -(void)testGetIndexPathOfPersonPhoneArrayByIndex{
