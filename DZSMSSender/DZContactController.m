@@ -137,6 +137,7 @@
         
         [persons addObject:person];
     }//person对象转换完毕
+    self.dataSource.personArray = persons;
     //为sortedPerson 和sortedKeys赋值
     [self sortPersonsByPinyinName:persons];
     
