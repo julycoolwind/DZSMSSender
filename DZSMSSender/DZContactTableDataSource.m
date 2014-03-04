@@ -46,15 +46,47 @@
     }
     cell.textLabel.text = @"";
     cell.detailTextLabel.text = @"";
-    if(self.personArray.count >0){
-        NSIndexPath *path = [self IndexPathByIndex:indexPath.row];
-        //增加一个判断这个cell是显示人名还是电话的方法。
-        cell.textLabel.text = [(DZPerson *)[self.personArray objectAtIndex:0] fullName];
-        cell.detailTextLabel.text = [(DZPhone *)[[(DZPerson *)[self.personArray objectAtIndex:0] phones] objectAtIndex:0] phoneString];
+    NSIndexPath *path = [self IndexPathByIndex:indexPath.row];
+    //如果分了section要考虑，不能直接使用section
+    if([self isCellIndexAtPerson:indexPath.row]){
+        [self loadPersonAndOnePhone:cell personIndex:path.section];
+    }else{
+        [self loadPhoenAt:path.row onPersonAt:path.section to:cell];
     }
     return cell;
 }
+-(BOOL)isCellIndexAtPerson:(int)index{
+    NSInteger i;
+    NSInteger phonesCount = 0;
+    NSInteger count = 0;
+    Boolean result = false;
+    for (i  = 0; i < self.personArray.count; i ++) {
+        DZPerson *person = (DZPerson *)[self.personArray objectAtIndex:count];
+        phonesCount = person.phones.count<2?1:person.phones.count-1;
+        count += phonesCount;
+        if(count == index){
+            result = true;
+            break;
+        }
+        if(count > index){
+            break;
+        }
+        
+    }
+    return result;
+}
 
+-(void)loadPersonAndOnePhone:(UITableViewCell *)cell personIndex:(int)personIndex{
+    cell.textLabel.text =[(DZPerson *)[self.sortedPersonArray objectAtIndex:personIndex] fullName];
+    if ([(DZPerson *)[self.personArray objectAtIndex:personIndex] phones].count>0) {
+        cell.detailTextLabel.text = [(DZPhone *)[[(DZPerson *)[self.personArray objectAtIndex:personIndex] phones] objectAtIndex:0] phoneString];
+    }
+}
+
+-(void)loadPhoenAt:(int)phoneIndex onPersonAt:(int)personIndex to:(UITableViewCell*)cell{
+    cell.detailTextLabel.text = [(DZPhone *)[[(DZPerson *)[self.personArray objectAtIndex:personIndex] phones] objectAtIndex:phoneIndex] phoneString];
+}
+//根据table的index获取一个NSIndexPath对象，使用path的section表示person的下表，row表示person中电话的下标
 -(NSIndexPath *)IndexPathByIndex:(NSInteger)index{
     NSIndexPath *path = [NSIndexPath indexPathForRow:0 inSection:0];
     if(index == 0) return path;
