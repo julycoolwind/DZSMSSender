@@ -45,34 +45,6 @@
     sortedKeys = [[NSMutableArray alloc] initWithCapacity:10];
     return self;
 }
-- (void)sortPersonsByPinyinName:(NSMutableArray*) personArray
-{
-    //根据person的姓名拼音进行排序
-    //**已由DataSource实现
-    personArray = (NSMutableArray *)[persons sortedArrayUsingComparator:^NSComparisonResult(DZPerson *person1, DZPerson *person2) {
-        return [person1.namePinyin compare:person2.namePinyin];
-    }];
-    //让排序后的每个person记录自己的索引号
-    //**已由DataSource实现
-    for(int i = 0 ;i<personArray.count ; i++){
-        DZPerson *person = [persons objectAtIndex:i];
-        person.personIndex = [NSNumber numberWithInt:i];
-
-        //便利person数组，取得每个联系人的姓名首字母，并放置如索引数组
-        if([sortedPerson objectForKey:person.fistrLetterOfFullName]==NULL){
-            NSMutableArray *items = [[NSMutableArray alloc] init];
-            [items addObject:person];
-            [sortedPerson setObject:items forKey:person.fistrLetterOfFullName];
-            [sortedKeys addObject:person.fistrLetterOfFullName];
-        }else{
-            [[sortedPerson objectForKey:person.fistrLetterOfFullName] addObject:person];
-        }
-    }
-    //对索引数组进行排序
-    sortedKeys = (NSMutableArray *)[sortedKeys sortedArrayUsingComparator:^NSComparisonResult(NSString *string1, NSString *string2) {
-        return [ string1 compare:string2];
-    }];
-}
 
 - (void)viewDidLoad
 {
@@ -138,11 +110,6 @@
         [persons addObject:person];
     }//person对象转换完毕
     self.dataSource.personArray = persons;
-    //为sortedPerson 和sortedKeys赋值
-    [self sortPersonsByPinyinName:persons];
-    
-    
-    
     [self.tableView setEditing:YES animated:YES];
     selectedRow = [[NSMutableArray alloc] initWithCapacity:50];
     
@@ -231,73 +198,6 @@
     // Dispose of any resources that can be recreated.
     MFMessageComposeViewController *controller = [[MFMessageComposeViewController alloc] init] ;
     [controller setDelegate:self];
-}
-
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-
-    return sortedKeys.count;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    
-    int rowCount = 0;
-    for (DZPerson *person in [sortedPerson objectForKey:[sortedKeys objectAtIndex:section]]) {
-        rowCount += person.phones.count==0?1:person.phones.count;
-    }
-    return rowCount;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"Cell";
-    DZContactCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        //修改为从模型数组读取。
-        cell = [[DZContactCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-    }
-    cell.textLabel.text = @"";
-    cell.detailTextLabel.text = @"";
-    NSArray *tempPersons = [sortedPerson objectForKey:[sortedKeys objectAtIndex:indexPath.section]];
-    int preSum = 0;
-    for(int i = 0 ;i<tempPersons.count;i++){
-        DZPerson *tempPerson = [tempPersons objectAtIndex: i];
-        int tempCount = tempPerson.phones.count;
-
-        if(indexPath.row == preSum) {
-            cell.textLabel.text = tempPerson.fullName;
-            cell.personIndex = tempPerson.personIndex;
-            if(tempCount >= 1){
-                cell.detailTextLabel.text = [[tempPerson.phones objectAtIndex:0] phoneString];
-                cell.personIndex = tempPerson.personIndex;
-                cell.phoneIndex = [NSNumber numberWithInt:0];
-            }
-            break;
-        }else{
-            if(indexPath.row > preSum+tempCount){
-                preSum += tempCount==0?1:tempCount;
-                continue;
-            }
-            if(indexPath.row < preSum + tempCount){
-                int tempindex = indexPath.row - preSum;
-                tempindex = tempindex == 1 ?1:tempindex-1;
-                cell.detailTextLabel.text = [[tempPerson.phones objectAtIndex:tempindex] phoneString];
-                cell.personIndex = tempPerson.personIndex;
-                cell.phoneIndex = [NSNumber numberWithInt:tempindex];
-                break;
-            }
-        }
-        preSum += tempCount==0?1:tempCount;
-    }
-    //下面的代码没用，好奇怪。
-//    CGRect rect = cell.textLabel.frame;
-//    rect.origin.x +=20;
-//    cell.textLabel.frame = rect;
-    NSLog(@"name:%@,personIdex:%d",cell.textLabel.text,[cell.personIndex intValue]);
-    return cell;
 }
 
 
