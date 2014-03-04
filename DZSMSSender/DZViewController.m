@@ -9,6 +9,7 @@
 #import "DZViewController.h"
 #import "DZAppDelegate.h"
 #import "DZContactController.h"
+#import "DZContactTableDataSource.h"
 
 @interface DZViewController ()
 
@@ -28,6 +29,7 @@
    }
 -(void)click:(id *)sender{
     DZContactController *contactView = [[DZContactController alloc] initWithNibName:@"DZContactController" bundle:nil SMSTemplet:self.SMSText.text];
+    contactView.dataSource = [[DZContactTableDataSource alloc] init];
     DZAppDelegate *delegate = (DZAppDelegate *)[[UIApplication sharedApplication] delegate];
     SMSContent = self.SMSText.text;
     [delegate.navController pushViewController:contactView animated:YES];
