@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18067A14183DE34A009C5C86 /* DZContactTableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 18067A13183DE34A009C5C86 /* DZContactTableDataSource.m */; };
+		18067A15183DE34A009C5C86 /* DZContactTableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 18067A13183DE34A009C5C86 /* DZContactTableDataSource.m */; };
+		18067A17183DE516009C5C86 /* DZContactTableDataSourceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 18067A16183DE516009C5C86 /* DZContactTableDataSourceTest.m */; };
 		181953C018127F85009B4559 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 181953BF18127F85009B4559 /* XCTest.framework */; };
 		181953C118127F85009B4559 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18DC4B2317C303F50066EDF6 /* Foundation.framework */; };
 		181953C218127F85009B4559 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18DC4B2117C303F50066EDF6 /* UIKit.framework */; };
@@ -24,9 +27,13 @@
 		1839CF3717C45944008FB8FB /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1839CF3617C45944008FB8FB /* AddressBook.framework */; };
 		1839CF3917C45949008FB8FB /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1839CF3817C45949008FB8FB /* AddressBookUI.framework */; };
 		183BAB5C17C5ACB600A9DAA8 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 183BAB5B17C5ACB600A9DAA8 /* MessageUI.framework */; };
+		185DEA1118755BBA00B9C0D9 /* DZPhoneTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 185DEA1018755BBA00B9C0D9 /* DZPhoneTest.m */; };
 		189052ED183AFF3D00B8F713 /* DZPersonTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 189052EC183AFF3D00B8F713 /* DZPersonTest.m */; };
 		189052F0183B4C8200B8F713 /* DZPersonManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 189052EF183B4C8200B8F713 /* DZPersonManager.m */; };
 		189052F1183B4C8200B8F713 /* DZPersonManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 189052EF183B4C8200B8F713 /* DZPersonManager.m */; };
+		18B17F0C187268E60097C8AD /* DZContactControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B17F0B187268E60097C8AD /* DZContactControllerTest.m */; };
+		18B17F0F1872711E0097C8AD /* EmptyTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B17F0E1872711E0097C8AD /* EmptyTableViewDataSource.m */; };
+		18B17F12187273910097C8AD /* EmptyTableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B17F11187273910097C8AD /* EmptyTableViewDelegate.m */; };
 		18DC4B2217C303F50066EDF6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18DC4B2117C303F50066EDF6 /* UIKit.framework */; };
 		18DC4B2417C303F50066EDF6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18DC4B2317C303F50066EDF6 /* Foundation.framework */; };
 		18DC4B2617C303F50066EDF6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18DC4B2517C303F50066EDF6 /* CoreGraphics.framework */; };
@@ -53,6 +60,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		18067A12183DE34A009C5C86 /* DZContactTableDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZContactTableDataSource.h; sourceTree = "<group>"; };
+		18067A13183DE34A009C5C86 /* DZContactTableDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZContactTableDataSource.m; sourceTree = "<group>"; };
+		18067A16183DE516009C5C86 /* DZContactTableDataSourceTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZContactTableDataSourceTest.m; sourceTree = "<group>"; };
 		181953BE18127F85009B4559 /* 定制短信 Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "定制短信 Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		181953BF18127F85009B4559 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		181953C518127F85009B4559 /* 定制短信 Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "定制短信 Tests-Info.plist"; sourceTree = "<group>"; };
@@ -76,9 +86,15 @@
 		1839CF3617C45944008FB8FB /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		1839CF3817C45949008FB8FB /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		183BAB5B17C5ACB600A9DAA8 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		185DEA1018755BBA00B9C0D9 /* DZPhoneTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZPhoneTest.m; sourceTree = "<group>"; };
 		189052EC183AFF3D00B8F713 /* DZPersonTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZPersonTest.m; sourceTree = "<group>"; };
 		189052EE183B4C8200B8F713 /* DZPersonManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZPersonManager.h; sourceTree = "<group>"; };
 		189052EF183B4C8200B8F713 /* DZPersonManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZPersonManager.m; sourceTree = "<group>"; };
+		18B17F0B187268E60097C8AD /* DZContactControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZContactControllerTest.m; sourceTree = "<group>"; };
+		18B17F0D1872711E0097C8AD /* EmptyTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmptyTableViewDataSource.h; sourceTree = "<group>"; };
+		18B17F0E1872711E0097C8AD /* EmptyTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmptyTableViewDataSource.m; sourceTree = "<group>"; };
+		18B17F10187273910097C8AD /* EmptyTableViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmptyTableViewDelegate.h; sourceTree = "<group>"; };
+		18B17F11187273910097C8AD /* EmptyTableViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmptyTableViewDelegate.m; sourceTree = "<group>"; };
 		18DC4B1E17C303F50066EDF6 /* 定制短信.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "定制短信.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18DC4B2117C303F50066EDF6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		18DC4B2317C303F50066EDF6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -133,6 +149,13 @@
 				181953C918127F85009B4559 /* _____Tests.m */,
 				181953C418127F85009B4559 /* Supporting Files */,
 				189052EC183AFF3D00B8F713 /* DZPersonTest.m */,
+				185DEA1018755BBA00B9C0D9 /* DZPhoneTest.m */,
+				18067A16183DE516009C5C86 /* DZContactTableDataSourceTest.m */,
+				18B17F0B187268E60097C8AD /* DZContactControllerTest.m */,
+				18B17F10187273910097C8AD /* EmptyTableViewDelegate.h */,
+				18B17F11187273910097C8AD /* EmptyTableViewDelegate.m */,
+				18B17F0D1872711E0097C8AD /* EmptyTableViewDataSource.h */,
+				18B17F0E1872711E0097C8AD /* EmptyTableViewDataSource.m */,
 			);
 			path = "定制短信 Tests";
 			sourceTree = "<group>";
@@ -195,6 +218,8 @@
 				18DC4B2817C303F50066EDF6 /* Supporting Files */,
 				18DC4B4717C35FD10066EDF6 /* DZContactController.h */,
 				18DC4B4817C35FD10066EDF6 /* DZContactController.m */,
+				18067A12183DE34A009C5C86 /* DZContactTableDataSource.h */,
+				18067A13183DE34A009C5C86 /* DZContactTableDataSource.m */,
 				189052EE183B4C8200B8F713 /* DZPersonManager.h */,
 				189052EF183B4C8200B8F713 /* DZPersonManager.m */,
 				182E036217CC42F5005E952D /* DZContactCell.h */,
@@ -330,8 +355,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18B17F12187273910097C8AD /* EmptyTableViewDelegate.m in Sources */,
 				189052F1183B4C8200B8F713 /* DZPersonManager.m in Sources */,
+				18B17F0F1872711E0097C8AD /* EmptyTableViewDataSource.m in Sources */,
 				189052ED183AFF3D00B8F713 /* DZPersonTest.m in Sources */,
+				18067A15183DE34A009C5C86 /* DZContactTableDataSource.m in Sources */,
+				18067A17183DE516009C5C86 /* DZContactTableDataSourceTest.m in Sources */,
+				18B17F0C187268E60097C8AD /* DZContactControllerTest.m in Sources */,
+				185DEA1118755BBA00B9C0D9 /* DZPhoneTest.m in Sources */,
 				181953CA18127F85009B4559 /* _____Tests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -350,6 +381,7 @@
 				181D7D9117CB38320045D6FB /* ChineseToPinyin.m in Sources */,
 				182E036417CC42F5005E952D /* DZContactCell.m in Sources */,
 				182E036917CC4957005E952D /* pinyin.c in Sources */,
+				18067A14183DE34A009C5C86 /* DZContactTableDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

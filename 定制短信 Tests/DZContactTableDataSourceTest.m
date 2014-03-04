@@ -147,4 +147,60 @@ DZContactTableDataSource* source;
 -(void)testEditingStyleForRowAtIndexPath{
     XCTAssertTrue([source tableView:nil editingStyleForRowAtIndexPath:nil] == (UITableViewCellEditingStyleDelete|UITableViewCellEditingStyleInsert), @"Table view data source not set the style for row at index path right.");
 }
+
+-(void)testCellForRowAtIndexPathOnePersonOnePhone{
+    DZPhone *phone = [[DZPhone alloc] init];
+    phone.PhoneLable = @"label";
+    phone.PhoneNumber = @"1234567";
+    DZPerson *person = [[DZPerson alloc]init];
+    person.phones = [[NSMutableArray alloc] initWithObjects:phone, nil];
+    person.fullName = @"张三";
+    person.nickName = @"老三";
+    person.personIndex = @3;
+    source.personArray = [[NSMutableArray alloc]initWithObjects:person, nil];
+    UITableViewCell *cell = [source tableView:nil cellForRowAtIndexPath:[[NSIndexPath alloc] initWithIndex:0]];
+    XCTAssertTrue([cell.textLabel.text isEqualToString:@"张三"],@"The text label not right when person has a name.");
+    XCTAssertTrue([cell.detailTextLabel.text isEqualToString:@"label1234567"],@"The detailTextLabel not right with person has a phone");
+}
+
+-(void)testCellForRowAtIndexPathOnePersonTwoPhone{
+    DZPhone *phone1 = [[DZPhone alloc] init];
+    phone1.PhoneLable = @"label";
+    phone1.PhoneNumber = @"1234567";
+    DZPhone *phone2 = [[DZPhone alloc] init];
+    phone2.PhoneLable = @"label1";
+    phone2.PhoneNumber = @"12345678";
+    DZPerson *person = [[DZPerson alloc]init];
+    person.phones = [[NSMutableArray alloc] initWithObjects:phone1,phone2, nil];
+    person.fullName = @"张三";
+    person.nickName = @"老三";
+    person.personIndex = @3;
+    source.personArray = [[NSMutableArray alloc]initWithObjects:person, nil];
+    UITableViewCell *cell = [source tableView:nil cellForRowAtIndexPath:[[NSIndexPath alloc] initWithIndex:0]];
+    XCTAssertTrue([cell.textLabel.text isEqualToString:@"张三"],@"The text label not right when person has a name.");
+    XCTAssertTrue([cell.detailTextLabel.text isEqualToString:@"label1234567"],@"The detailTextLabel not right with person has a phone");
+    cell = [source tableView:nil cellForRowAtIndexPath:[[NSIndexPath alloc] initWithIndex:1]];
+    XCTAssertTrue([cell.textLabel.text isEqualToString:@"label112345678"],@"The text label not right when person has a name.");
+}
+
+-(void)testGetIndexPathOfPersonPhoneArrayByIndex{
+    DZPhone *phone1 = [[DZPhone alloc] init];
+    phone1.PhoneLable = @"label";
+    phone1.PhoneNumber = @"1234567";
+    DZPhone *phone2 = [[DZPhone alloc] init];
+    phone2.PhoneLable = @"label1";
+    phone2.PhoneNumber = @"12345678";
+    DZPerson *person = [[DZPerson alloc]init];
+    person.phones = [[NSMutableArray alloc] initWithObjects:phone1,phone2, nil];
+    person.fullName = @"张三";
+    person.nickName = @"老三";
+    person.personIndex = @3;
+    source.personArray = [[NSMutableArray alloc]initWithObjects:person, nil];
+    NSIndexPath *path = [source IndexPathByIndex:0];
+    XCTAssertTrue([path section] == 0, @"section offered by IndexPathByIndex not right");
+    XCTAssertTrue([path row] == 0, @"Row Offered by IndexPathByIndex not right" );
+    path = [source IndexPathByIndex:1];
+    XCTAssertTrue([path section] == 0, @"section offered by IndexPathByIndex not right");
+    XCTAssertTrue([path row] == 1, @"Row Offered by IndexPathByIndex not right" );
+}
 @end

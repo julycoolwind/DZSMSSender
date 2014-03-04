@@ -8,6 +8,8 @@
 
 #import "DZContactTableDataSource.h"
 #import "DZPerson.h"
+#import "DZContactCell.h"
+#import "DZPhone.h"
 
 @implementation DZContactTableDataSource
 
@@ -36,7 +38,44 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return nil;
+    static NSString *CellIdentifier = @"Cell";
+    DZContactCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        //修改为从模型数组读取。
+        cell = [[DZContactCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+    }
+    cell.textLabel.text = @"";
+    cell.detailTextLabel.text = @"";
+    if(self.personArray.count >0){
+        NSIndexPath *path = [self IndexPathByIndex:indexPath.row];
+        //增加一个判断这个cell是显示人名还是电话的方法。
+        cell.textLabel.text = [(DZPerson *)[self.personArray objectAtIndex:0] fullName];
+        cell.detailTextLabel.text = [(DZPhone *)[[(DZPerson *)[self.personArray objectAtIndex:0] phones] objectAtIndex:0] phoneString];
+    }
+    return cell;
+}
+
+-(NSIndexPath *)IndexPathByIndex:(NSInteger)index{
+    NSIndexPath *path = [NSIndexPath indexPathForRow:0 inSection:0];
+    if(index == 0) return path;
+    NSInteger count = 0;
+    NSInteger i;
+    NSInteger phonesCount = 0;
+    for (i  = 0; i < self.personArray.count; i ++) {
+        DZPerson *person = (DZPerson *)[self.personArray objectAtIndex:count];
+        phonesCount = person.phones.count<2?1:person.phones.count-1;
+        count += phonesCount;
+        if(count == index){
+            path = [NSIndexPath indexPathForRow:phonesCount inSection:i];
+            break;
+        }
+        if(count > index){
+            path = [NSIndexPath indexPathForRow:phonesCount-(count - index) inSection:i];
+            break;
+        }
+        
+    }
+    return path;
 }
 
 -(void)setPersonArray:(NSMutableArray *)personArray
