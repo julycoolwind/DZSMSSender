@@ -64,11 +64,11 @@
         DZPerson *person = (DZPerson *)[self.personArray objectAtIndex:count];
         phonesCount = person.phones.count<2?1:person.phones.count-1;
         count += phonesCount;
-        if(count == index){
+        if(count-1 == index){
             result = true;
             break;
         }
-        if(count > index){
+        if(count-1 > index){
             break;
         }
         
@@ -84,7 +84,8 @@
 }
 
 -(void)loadPhoenAt:(int)phoneIndex onPersonAt:(int)personIndex to:(UITableViewCell*)cell{
-    cell.detailTextLabel.text = [(DZPhone *)[[(DZPerson *)[self.personArray objectAtIndex:personIndex] phones] objectAtIndex:phoneIndex] phoneString];
+    DZPerson *person =(DZPerson *)[self.sortedPersonArray objectAtIndex:personIndex];
+    cell.detailTextLabel.text = [(DZPhone *)[person.phones objectAtIndex:phoneIndex] phoneString];
 }
 //根据table的index获取一个NSIndexPath对象，使用path的section表示person的下表，row表示person中电话的下标
 -(NSIndexPath *)IndexPathByIndex:(NSInteger)index{
@@ -94,7 +95,7 @@
     NSInteger i;
     NSInteger phonesCount = 0;
     for (i  = 0; i < self.personArray.count; i ++) {
-        DZPerson *person = (DZPerson *)[self.personArray objectAtIndex:count];
+        DZPerson *person = (DZPerson *)[self.sortedPersonArray objectAtIndex:count];
         phonesCount = person.phones.count<2?1:person.phones.count-1;
         count += phonesCount;
         if(count == index){
