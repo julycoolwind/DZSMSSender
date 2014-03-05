@@ -145,7 +145,7 @@ DZContactTableDataSource* source;
 }
 
 -(void)testEditingStyleForRowAtIndexPath{
-    XCTAssertTrue([source tableView:nil editingStyleForRowAtIndexPath:nil] == (UITableViewCellEditingStyleDelete|UITableViewCellEditingStyleInsert), @"Table view data source not set the style for row at index path right.");
+    XCTAssertTrue([source tableView:nil editingStyleForRowAtIndexPath:nil] == (UITableViewCellEditingStyleNone), @"Table view data source not set the style for row at index path right.");
 }
 
 -(void)testCellForRowAtIndexPathOnePersonOnePhone{
