@@ -110,7 +110,6 @@
         [persons addObject:person];
     }//person对象转换完毕
     self.dataSource.personArray = persons;
-    [self.tableView setEditing:YES animated:YES];
     selectedRow = [[NSMutableArray alloc] initWithCapacity:50];
     
     UIBarButtonItem *but_send = [[UIBarButtonItem alloc] initWithTitle:@"发送" style:UIBarButtonItemStylePlain target:self action:@selector(sendSMS:)];
@@ -203,39 +202,11 @@
 
 
 #pragma mark - Table view delegate
--(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
-    DZContactCell *cell = (DZContactCell *)[self tableView:self.tableView cellForRowAtIndexPath:indexPath];
-    DZPerson *person = (DZPerson *)[persons objectAtIndex:[cell.personIndex intValue]];
-    NSLog(@"section:%d row:%d name:%@ count:%d",indexPath.section,indexPath.row,person.fullName,person.phones.count);
-    //通过判断phones.count的方式不能排除没有电话的联系人,很奇怪明明没有电话，count却是1
-    //感觉像通讯录没有读全，很奇怪,fullname通过nslog显示出来也不对，从这里入手看看
-    return person.phones.count > 0;
-}
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    //NSIndexPath *path = [NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section];
-    [selectedRow addObject:indexPath];
-}
 
-- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [selectedRow removeObject:indexPath];
-    
-}
 
--(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-    return [sortedKeys objectAtIndex:section];
-}
 
-- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
-    
-    return sortedKeys;
-    
-}
 
-- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return UITableViewCellEditingStyleDelete | UITableViewCellEditingStyleInsert;
-}
+
+
 
 @end
