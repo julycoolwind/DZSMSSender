@@ -46,6 +46,7 @@
     }
     cell.textLabel.text = @"";
     cell.detailTextLabel.text = @"";
+    cell.accessoryType = UITableViewCellAccessoryNone;
     NSIndexPath *path = [self IndexPathByIndex:indexPath.row];
     //如果分了section要考虑，不能直接使用section
     if([self isCellIndexAtPerson:indexPath.row]){
@@ -55,6 +56,23 @@
     }
     return cell;
 }
+
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return [self.sortedKeys objectAtIndex:section];
+}
+
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
+    
+    return self.sortedKeys;
+    
+}
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return UITableViewCellEditingStyleNone;
+}
+
 -(BOOL)isCellIndexAtPerson:(int)index{
     NSInteger i;
     NSInteger phonesCount = 0;
@@ -118,10 +136,7 @@
     _sortedPersonArray = [self sortPersonsByPinyinName:_personArray];
 }
 
-- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return UITableViewCellEditingStyleDelete | UITableViewCellEditingStyleInsert;
-}
+
 
 
 
