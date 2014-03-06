@@ -47,16 +47,20 @@
     cell.textLabel.text = @"";
     cell.detailTextLabel.text = @"";
     cell.accessoryType = UITableViewCellAccessoryNone;
-    NSIndexPath *path = [self IndexPathByIndex:indexPath];
-    //如果分了section要考虑，不能直接使用section
-    if([self isCellIndexAtPerson:indexPath.row onPersonArray:[self.personDic objectForKey:[self.sortedKeys objectAtIndex:indexPath.section]]]){
-        [self loadPersonAndOnePhone:cell personIndex:path.section fromPersonArray: [self.personDic objectForKey:[self.sortedKeys objectAtIndex:indexPath.section]]];
-    }else{
-        [self loadPhoenAt:path.row onPersonAt:path.section to:cell fromPersonArray:[self.personDic objectForKey:[self.sortedKeys objectAtIndex:indexPath.section]]];
-    }
+    [self loadInfoToCell:cell AtIndexPath:indexPath];
     return cell;
 }
 
+-(void)loadInfoToCell:(UITableViewCell *)cell AtIndexPath:(NSIndexPath *) indexPath{
+    //此处将NSIndexPath当做一个数据结构来使用，转换之后section表示第几个person，row则表示这个person的第几个电话
+    NSIndexPath *path = [self IndexPathByIndex:indexPath];
+    NSArray * personListInSection = [self.personDic objectForKey:[self.sortedKeys objectAtIndex:indexPath.section]];
+    if([self isCellIndexAtPerson:indexPath.row onPersonArray:personListInSection]){
+        [self loadPersonAndOnePhone:cell personIndex:path.section fromPersonArray: personListInSection];
+    }else{
+        [self loadPhoenAt:path.row onPersonAt:path.section to:cell fromPersonArray:personListInSection];
+    }
+}
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     return [self.sortedKeys objectAtIndex:section];
@@ -95,15 +99,16 @@
 }
 
 -(void)loadPersonAndOnePhone:(UITableViewCell *)cell personIndex:(int)personIndex fromPersonArray:(NSArray *) personList{
-    cell.textLabel.text =[(DZPerson *)[personList objectAtIndex:personIndex] fullName];
-    if ([(DZPerson *)[personList objectAtIndex:personIndex] phones].count>0) {
-        cell.detailTextLabel.text = [(DZPhone *)[[(DZPerson *)[personList objectAtIndex:personIndex] phones] objectAtIndex:0] phoneString];
+    DZPerson *person = (DZPerson *)[personList objectAtIndex:personIndex];
+    cell.textLabel.text =[person fullName];
+    if ([person phones].count>0) {
+        cell.detailTextLabel.text = [[[person phones] objectAtIndex:0] phoneString];
     }
 }
 
 -(void)loadPhoenAt:(int)phoneIndex onPersonAt:(int)personIndex to:(UITableViewCell*)cell fromPersonArray:(NSArray *) personList{
     DZPerson *person =(DZPerson *)[personList objectAtIndex:personIndex];
-    cell.detailTextLabel.text = [(DZPhone *)[person.phones objectAtIndex:phoneIndex] phoneString];
+    cell.detailTextLabel.text = [[person.phones objectAtIndex:phoneIndex] phoneString];
 }
 //根据table的index获取一个NSIndexPath对象，使用path的section表示person的下表，row表示person中电话的下标
 -(NSIndexPath *)IndexPathByIndex:(NSIndexPath *) index{
