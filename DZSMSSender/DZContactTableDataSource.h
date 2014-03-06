@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface DZContactTableDataSource : NSObject<UITableViewDataSource>
+@interface DZContactTableDataSource : NSObject<UITableViewDataSource,UITableViewDelegate>
 //联系人数组，电话本中的顺序，没有进行排序
 @property(nonatomic) NSMutableArray *personArray;
 //使用姓名拼音排序后的联系人数组

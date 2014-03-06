@@ -50,7 +50,7 @@
 {
     [super viewDidLoad];
     self.tableView.dataSource = self.dataSource;
-    self.tableView.delegate = self.tableViewDelegate;
+    self.tableView.delegate = self.dataSource;
     //获取对通讯录的引用
     ABAddressBookRef addressBook = nil;
     if ([[UIDevice currentDevice].systemVersion floatValue] >= 6.0)
@@ -198,14 +198,6 @@
     MFMessageComposeViewController *controller = [[MFMessageComposeViewController alloc] init] ;
     [controller setDelegate:self];
 }
-
-
-
-#pragma mark - Table view delegate
-
-
-
-
 
 
 
