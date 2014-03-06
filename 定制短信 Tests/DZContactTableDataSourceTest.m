@@ -184,6 +184,13 @@ DZContactTableDataSource* source;
 
 }
 
+-(void)testCellForRowAtIndexPathTwoInTwoSection{
+    UITableViewCell *cell = [source tableView:nil cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    XCTAssertEqualObjects(cell.textLabel.text, @"李四", @"获取第一个section中的用户失败");
+    cell = [source tableView:nil cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]];
+    XCTAssertEqualObjects(cell.textLabel.text, @"张三", @"获取第二个section中的用户失败");
+}
+
 -(void)testGetIndexPathOfPersonPhoneArrayByIndex{
     DZPhone *phone1 = [[DZPhone alloc] init];
     phone1.PhoneLable = @"label";
@@ -197,10 +204,10 @@ DZContactTableDataSource* source;
     person.nickName = @"老三";
     person.personIndex = @3;
     source.personArray = [[NSMutableArray alloc]initWithObjects:person, nil];
-    NSIndexPath *path = [source IndexPathByIndex:0];
+    NSIndexPath *path = [source IndexPathByIndex:[NSIndexPath indexPathForRow:0 inSection:0]];
     XCTAssertTrue([path section] == 0, @"section offered by IndexPathByIndex not right");
     XCTAssertTrue([path row] == 0, @"Row Offered by IndexPathByIndex not right" );
-    path = [source IndexPathByIndex:1];
+    path = [source IndexPathByIndex:[NSIndexPath indexPathForRow:1 inSection:0]];
     XCTAssertTrue([path section] == 0, @"section offered by IndexPathByIndex not right");
     XCTAssertTrue([path row] == 1, @"Row Offered by IndexPathByIndex not right" );
 }

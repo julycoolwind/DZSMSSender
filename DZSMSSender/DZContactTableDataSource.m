@@ -47,12 +47,12 @@
     cell.textLabel.text = @"";
     cell.detailTextLabel.text = @"";
     cell.accessoryType = UITableViewCellAccessoryNone;
-    NSIndexPath *path = [self IndexPathByIndex:indexPath.row];
+    NSIndexPath *path = [self IndexPathByIndex:indexPath];
     //如果分了section要考虑，不能直接使用section
-    if([self isCellIndexAtPerson:indexPath.row]){
-        [self loadPersonAndOnePhone:cell personIndex:path.section];
+    if([self isCellIndexAtPerson:indexPath.row onPersonArray:[self.personDic objectForKey:[self.sortedKeys objectAtIndex:indexPath.section]]]){
+        [self loadPersonAndOnePhone:cell personIndex:path.section fromPersonArray: [self.personDic objectForKey:[self.sortedKeys objectAtIndex:indexPath.section]]];
     }else{
-        [self loadPhoenAt:path.row onPersonAt:path.section to:cell];
+        [self loadPhoenAt:path.row onPersonAt:path.section to:cell fromPersonArray:[self.personDic objectForKey:[self.sortedKeys objectAtIndex:indexPath.section]]];
     }
     return cell;
 }
@@ -73,13 +73,13 @@
     return UITableViewCellEditingStyleNone;
 }
 
--(BOOL)isCellIndexAtPerson:(int)index{
+-(BOOL)isCellIndexAtPerson:(int)index onPersonArray:(NSArray *)personList{
     NSInteger i;
     NSInteger phonesCount = 0;
     NSInteger count = 0;
     Boolean result = false;
-    for (i  = 0; i < self.personArray.count; i ++) {
-        DZPerson *person = (DZPerson *)[self.personArray objectAtIndex:count];
+    for (i  = 0; i < personList.count; i ++) {
+        DZPerson *person = (DZPerson *)[personList objectAtIndex:count];
         phonesCount = person.phones.count<2?1:person.phones.count-1;
         count += phonesCount;
         if(count-1 == index){
@@ -94,34 +94,35 @@
     return result;
 }
 
--(void)loadPersonAndOnePhone:(UITableViewCell *)cell personIndex:(int)personIndex{
-    cell.textLabel.text =[(DZPerson *)[self.sortedPersonArray objectAtIndex:personIndex] fullName];
-    if ([(DZPerson *)[self.personArray objectAtIndex:personIndex] phones].count>0) {
-        cell.detailTextLabel.text = [(DZPhone *)[[(DZPerson *)[self.personArray objectAtIndex:personIndex] phones] objectAtIndex:0] phoneString];
+-(void)loadPersonAndOnePhone:(UITableViewCell *)cell personIndex:(int)personIndex fromPersonArray:(NSArray *) personList{
+    cell.textLabel.text =[(DZPerson *)[personList objectAtIndex:personIndex] fullName];
+    if ([(DZPerson *)[personList objectAtIndex:personIndex] phones].count>0) {
+        cell.detailTextLabel.text = [(DZPhone *)[[(DZPerson *)[personList objectAtIndex:personIndex] phones] objectAtIndex:0] phoneString];
     }
 }
 
--(void)loadPhoenAt:(int)phoneIndex onPersonAt:(int)personIndex to:(UITableViewCell*)cell{
-    DZPerson *person =(DZPerson *)[self.sortedPersonArray objectAtIndex:personIndex];
+-(void)loadPhoenAt:(int)phoneIndex onPersonAt:(int)personIndex to:(UITableViewCell*)cell fromPersonArray:(NSArray *) personList{
+    DZPerson *person =(DZPerson *)[personList objectAtIndex:personIndex];
     cell.detailTextLabel.text = [(DZPhone *)[person.phones objectAtIndex:phoneIndex] phoneString];
 }
 //根据table的index获取一个NSIndexPath对象，使用path的section表示person的下表，row表示person中电话的下标
--(NSIndexPath *)IndexPathByIndex:(NSInteger)index{
+-(NSIndexPath *)IndexPathByIndex:(NSIndexPath *) index{
     NSIndexPath *path = [NSIndexPath indexPathForRow:0 inSection:0];
+    NSMutableArray *personesInSection= [self.personDic objectForKey:[self.sortedKeys objectAtIndex:index.section]];
     if(index == 0) return path;
     NSInteger count = 0;
     NSInteger i;
     NSInteger phonesCount = 0;
-    for (i  = 0; i < self.personArray.count; i ++) {
-        DZPerson *person = (DZPerson *)[self.sortedPersonArray objectAtIndex:count];
+    for (i  = 0; i < personesInSection.count; i ++) {
+        DZPerson *person = (DZPerson *)[personesInSection objectAtIndex:count];
         phonesCount = person.phones.count<2?1:person.phones.count-1;
         count += phonesCount;
-        if(count == index){
+        if(count == index.row){
             path = [NSIndexPath indexPathForRow:phonesCount inSection:i];
             break;
         }
-        if(count > index){
-            path = [NSIndexPath indexPathForRow:phonesCount-(count - index) inSection:i];
+        if(count > index.row){
+            path = [NSIndexPath indexPathForRow:phonesCount-(count - index.row) inSection:i];
             break;
         }
         
