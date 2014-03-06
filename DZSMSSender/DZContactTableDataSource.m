@@ -11,13 +11,16 @@
 #import "DZContactCell.h"
 #import "DZPhone.h"
 
-@implementation DZContactTableDataSource
+@implementation DZContactTableDataSource{
+    NSMutableArray *selectedIndexPath;;
+}
 
 -(id)init
 {
     self = [super init];
     _personDic = [[NSMutableDictionary alloc]init];
     _sortedKeys = [[NSMutableArray alloc]init];
+    selectedIndexPath = [[NSMutableArray alloc]init];
     return self;
 }
 
@@ -48,6 +51,7 @@
     cell.detailTextLabel.text = @"";
     cell.accessoryType = UITableViewCellAccessoryNone;
     [self loadInfoToCell:cell AtIndexPath:indexPath];
+    [self setCheckAccessoryForCell:cell At:indexPath];
     return cell;
 }
 
@@ -175,10 +179,45 @@
 
 #pragma mark - Table view delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryCheckmark;
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    if(cell.accessoryType==UITableViewCellAccessoryNone){
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        [selectedIndexPath addObject:[NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section]];
+    }else{
+        [self removeIndexPahtFromSelected:indexPath];
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
 };
+
+-(void)removeIndexPahtFromSelected:(NSIndexPath *)indexPath{
+    for (NSIndexPath *path in selectedIndexPath) {
+        if(indexPath.section == path.section && indexPath.row == path.row){
+            [selectedIndexPath removeObject:path];
+             break;
+        }
+    }
+}
+
+-(BOOL)isIndexPathCheck:(NSIndexPath *) indexPath{
+    BOOL result = false;
+    for (NSIndexPath *path in selectedIndexPath) {
+        if (indexPath.section == path.section && indexPath.row == path.row) {
+            result = true;
+        }
+    }
+    return result;
+}
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryNone;
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    [self setCheckAccessoryForCell:cell At:indexPath];
 };
+
+-(void)setCheckAccessoryForCell:(UITableViewCell *)cell At:(NSIndexPath *)indexPath{
+    if ([self isIndexPathCheck:indexPath]) {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    } else {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
+}
 
 @end
