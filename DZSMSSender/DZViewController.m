@@ -17,6 +17,7 @@
 
 @implementation DZViewController{
     NSString *SMSContent;
+    int SMSViewTop ;
 }
 
 - (void)viewDidLoad
@@ -26,6 +27,7 @@
     UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target: self action:@selector(click:)];
     self.navigationItem.rightBarButtonItem = leftButton;
     SMSContent = @"";
+    SMSViewTop = self.navigationController.navigationBar.frame.size.height+self.navigationController.navigationBar.frame.origin.y;
    }
 -(void)click:(id *)sender{
     DZContactController *contactView = [[DZContactController alloc] initWithNibName:@"DZContactController" bundle:nil SMSTemplet:self.SMSText.text];
@@ -41,7 +43,7 @@
     [self.but_clear addTarget:self action:@selector(click:) forControlEvents:UIControlEventTouchUpInside];
     self.but_clear.frame = CGRectMake(0, self.view.frame.size.height-40, 100,40);
     
-    self.SMSText = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width,self.view.frame.size.height)];
+    self.SMSText = [[UITextView alloc] initWithFrame:CGRectMake(0, SMSViewTop, self.view.frame.size.width,self.view.frame.size.height)];
     self.SMSText.textColor = [UIColor blackColor];
     self.SMSText.font = [UIFont fontWithName:@"Arial" size:18];
     self.SMSText.backgroundColor = [UIColor whiteColor];
@@ -127,7 +129,7 @@
 //    DZAppDelegate *delegate = (DZAppDelegate *)[[UIApplication sharedApplication] delegate];
 //    delegate.viewController.view.autoresizesSubviews = YES;
 //    delegate.viewController.view.frame =CGRectMake(0, 0, self.view.bounds.size.width,200);
-    self.SMSText.frame = CGRectMake(0, 0, self.view.frame.size.width,self.view.frame.size.height-bottomInset);
+    self.SMSText.frame = CGRectMake(0,SMSViewTop, self.view.frame.size.width,self.view.frame.size.height-bottomInset-SMSViewTop);
 //    self.SMSText.bounds = CGRectMake(0, 0, 150, 100);
 //    self.SMSText.contentSize = CGSizeMake(150, 200);
     [UIView commitAnimations];
@@ -159,7 +161,7 @@
     [UIView setAnimationDuration:animationDuration];
     [UIView setAnimationCurve:(UIViewAnimationCurve)animationCurve];
     self.but_clear.frame = CGRectMake(0, self.view.frame.size.height-40, 100,40);
-    self.SMSText.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    self.SMSText.frame = CGRectMake(0, SMSViewTop, self.view.frame.size.width, self.view.frame.size.height);
     [UIView commitAnimations];
 }
 
