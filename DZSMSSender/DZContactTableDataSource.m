@@ -61,9 +61,9 @@
     NSArray * personListInSection = [self.personDic objectForKey:[self.sortedKeys objectAtIndex:indexPath.section]];
     if([self isCellIndexAtPerson:indexPath.row onPersonArray:personListInSection]){
         [self loadPersonAndOnePhone:cell personIndex:path.section fromPersonArray: personListInSection];
-    }else{
-        [self loadPhoenAt:path.row onPersonAt:path.section to:cell fromPersonArray:personListInSection];
-    }
+    }//}else{
+        //[self loadPhoenAt:path.row onPersonAt:path.section to:cell fromPersonArray:personListInSection];
+    //}
 }
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
