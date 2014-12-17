@@ -169,7 +169,9 @@
     [self.SMSText resignFirstResponder];
 }
 
-
+#pragma mark -
+#pragma mark === Touch handling  ===
+#pragma mark
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     NSLog(@"in touchesBegan");
     [self.SMSText resignFirstResponder];
@@ -181,4 +183,7 @@
     [self.SMSText resignFirstResponder];//结束name的第一响应状态
     //[numberField resignFirstResponder];//结束number的第一响应状态
 }
+
+
+
 @end

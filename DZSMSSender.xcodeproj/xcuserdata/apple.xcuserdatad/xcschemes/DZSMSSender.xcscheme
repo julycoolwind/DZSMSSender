@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "18DC4B1D17C303F50066EDF6"
-               BuildableName = "&#23450;&#21046;&#30701;&#20449;.app"
-               BlueprintName = "&#23450;&#21046;&#30701;&#20449;"
+               BuildableName = "&#x5b9a;&#x5236;&#x77ed;&#x4fe1;.app"
+               BlueprintName = "&#x5b9a;&#x5236;&#x77ed;&#x4fe1;"
                ReferencedContainer = "container:DZSMSSender.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -33,8 +33,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "181953BD18127F85009B4559"
-               BuildableName = "&#23450;&#21046;&#30701;&#20449; Tests.xctest"
-               BlueprintName = "&#23450;&#21046;&#30701;&#20449; Tests"
+               BuildableName = "&#x5b9a;&#x5236;&#x77ed;&#x4fe1; Tests.xctest"
+               BlueprintName = "&#x5b9a;&#x5236;&#x77ed;&#x4fe1; Tests"
                ReferencedContainer = "container:DZSMSSender.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -43,8 +43,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "18DC4B1D17C303F50066EDF6"
-            BuildableName = "&#23450;&#21046;&#30701;&#20449;.app"
-            BlueprintName = "&#23450;&#21046;&#30701;&#20449;"
+            BuildableName = "&#x5b9a;&#x5236;&#x77ed;&#x4fe1;.app"
+            BlueprintName = "&#x5b9a;&#x5236;&#x77ed;&#x4fe1;"
             ReferencedContainer = "container:DZSMSSender.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -62,8 +62,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "18DC4B1D17C303F50066EDF6"
-            BuildableName = "&#23450;&#21046;&#30701;&#20449;.app"
-            BlueprintName = "&#23450;&#21046;&#30701;&#20449;"
+            BuildableName = "&#x5b9a;&#x5236;&#x77ed;&#x4fe1;.app"
+            BlueprintName = "&#x5b9a;&#x5236;&#x77ed;&#x4fe1;"
             ReferencedContainer = "container:DZSMSSender.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -80,8 +80,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "18DC4B1D17C303F50066EDF6"
-            BuildableName = "&#23450;&#21046;&#30701;&#20449;.app"
-            BlueprintName = "&#23450;&#21046;&#30701;&#20449;"
+            BuildableName = "&#x5b9a;&#x5236;&#x77ed;&#x4fe1;.app"
+            BlueprintName = "&#x5b9a;&#x5236;&#x77ed;&#x4fe1;"
             ReferencedContainer = "container:DZSMSSender.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
