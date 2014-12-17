@@ -9,6 +9,8 @@
 #import "DZPerson.h"
 #import "DZPhone.h"
 #import "ChineseToPinyin.h"
+#import "pinyin.h"
+
 
 @implementation DZPerson
 
